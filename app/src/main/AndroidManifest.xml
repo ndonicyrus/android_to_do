@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDoApp">
+        <activity android:name=".NewToDoActivity"></activity>
         <activity
             android:name=".ToDoDetailActivity"
             android:label="@string/title_activity_to_do_detail"
-            android:theme="@style/Theme.ToDoApp.NoActionBar"></activity>
+            android:theme="@style/Theme.ToDoApp.NoActionBar" />
         <activity
             android:name=".ToDoActivity"
             android:label="@string/title_activity_to_do"
