@@ -26,6 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView19">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -50,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -67,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imgFirstfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -79,7 +81,7 @@
         app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imgSecondfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -98,7 +100,7 @@
         android:layout_margin="16dp"
         android:text="Subtask"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFirstfile" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout8"
@@ -112,6 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView22">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editSubtasks"
             android:layout_width="267dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -120,32 +123,32 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/editSubtask"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
         android:layout_weight="1"
         android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout8"
         app:layout_constraintStart_toEndOf="@+id/textInputLayout8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout8"
         app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCancel"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Cancel"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/btnCreateTask"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnCreateTask"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -153,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/btnCancel"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 
 
