@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/todotime"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,15 +36,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/tododate"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:drawableStart="@drawable/ic_baseline_lens_24"
             android:text="25 Nov 2019"
-            app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toTopOf="@+id/textView15" />
+            app:layout_constraintStart_toEndOf="@+id/todotime"
+            app:layout_constraintTop_toTopOf="@+id/todotime" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
@@ -53,7 +53,7 @@
             android:layout_margin="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16">
+            app:layout_constraintTop_toBottomOf="@+id/tododate">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,10 +76,10 @@
                     android:layout_margin="16dp"
                     android:text="Description"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                    app:layout_constraintTop_toBottomOf="@+id/todotime" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/tododetails"
                     style="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,11 +100,13 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/subtaskrecyclerview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SUBTASKS" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/filerecyclerview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FILES" />
@@ -131,15 +133,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <include
-                layout="@layout/subtask_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
         </LinearLayout>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnDelete"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -147,12 +144,12 @@
             android:drawableStart="@drawable/ic_baseline_cancel_24"
             android:text="Cancel"
             app:icon="@drawable/ic_baseline_cancel_24"
-            app:layout_constraintEnd_toStartOf="@+id/btn_complete"
+            app:layout_constraintEnd_toStartOf="@+id/btnComplete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
         <Button
-            android:id="@+id/btn_complete"
+            android:id="@+id/btnComplete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -160,7 +157,7 @@
             app:icon="@drawable/ic_baseline_check_circle_outline_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintStart_toEndOf="@+id/btnDelete"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 

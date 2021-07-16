@@ -8,9 +8,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ToDoDetailActivity extends AppCompatActivity {
 
@@ -23,7 +25,16 @@ public class ToDoDetailActivity extends AppCompatActivity {
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());
 
-        Button btnComplete =findViewById(R.id.btn_complete);
+        TextView todotime = findViewById(R.id.todotime);
+        TextView tododate = findViewById(R.id.tododate);
+        TextView tododetails = findViewById(R.id.tododetails);
+
+//        RecyclerView subtasksrecyclerview = findViewById(R.id.subtaskrecyclerview);
+//        RecyclerView filerecyclerview = findViewById(R.id.filerecyclerview);
+
+        Button btnDelete = findViewById(R.id.btnDelete);
+
+        Button btnComplete =findViewById(R.id.btnComplete);
         btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

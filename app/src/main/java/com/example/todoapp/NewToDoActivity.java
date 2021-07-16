@@ -8,10 +8,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.todoapp.models.Note;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.text.BreakIterator;
 
 public class NewToDoActivity extends AppCompatActivity {
 
@@ -20,7 +19,7 @@ public class NewToDoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_to_do);
 
-        Button btnCancel = findViewById(R.id.btnCancel);
+        Button btnCancel = findViewById(R.id.btnDelete);
         Button btnCreateTask = findViewById(R.id.btnCreateTask);
 
         ImageView fistFile = findViewById(R.id.imgFirstfile);
@@ -30,16 +29,22 @@ public class NewToDoActivity extends AppCompatActivity {
         TextInputEditText editDetail = findViewById(R.id.editDetails);
         TextInputEditText editSubtasks = findViewById(R.id.editSubtasks);
 
+        Note newNote = new Note();
+
+
+
+
 
         btnCreateTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String title = editTitle.getText().toString();
-                String detail = editDetail.getText().toString();
 
-                Toast.makeText(NewToDoActivity.this,title ,Toast.LENGTH_LONG).show();
+                newNote.setTitle(editTitle.getText().toString());
+                newNote.setDescription(editDetail.getText().toString());
 
-                Snackbar.make(v,detail, Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(NewToDoActivity.this,newNote.getTitle() ,Toast.LENGTH_LONG).show();
+
+                Snackbar.make(v,newNote.getDescription(), Snackbar.LENGTH_SHORT).show();
 
 
             }
