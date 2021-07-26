@@ -79,7 +79,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/todotime" />
 
                 <TextView
-                    android:id="@+id/tododetails"
+                    android:id="@+id/txtDetails"
                     style="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -122,6 +122,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabLayout2">
 
+
+            <include
+                layout="@layout/subtask_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <include
                 layout="@layout/subtask_item"

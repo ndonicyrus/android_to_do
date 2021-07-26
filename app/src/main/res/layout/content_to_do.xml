@@ -20,6 +20,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
             android:hint="Search To Do or Notes" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -30,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:fontFamily="cursive"
-        android:text="Hello Masavu"
+        android:text="Hello Developer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
