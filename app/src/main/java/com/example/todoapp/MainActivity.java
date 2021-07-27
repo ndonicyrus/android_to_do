@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.todoapp.auth.ui.login.LoginActivity;
+import com.example.todoapp.settings.SharedPrefConfig;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,9 +20,18 @@ public class MainActivity extends AppCompatActivity {
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ToDoActivity.class);
-                startActivity(intent);
-                finish();
+                SharedPrefConfig myPreferenceStorage = new SharedPrefConfig(getApplicationContext());
+               if (myPreferenceStorage.isLoggedIn()){
+
+                   Intent intent = new Intent(MainActivity.this, ToDoActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
+               else{
+                   Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
             }
         });
     }

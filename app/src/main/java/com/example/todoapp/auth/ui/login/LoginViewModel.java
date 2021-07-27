@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
+import com.example.todoapp.R;
 import com.example.todoapp.auth.data.LoginRepository;
 import com.example.todoapp.auth.data.Result;
 import com.example.todoapp.auth.data.model.LoggedInUser;
-import com.example.todoapp.auth.R;
 
 public class LoginViewModel extends ViewModel {
 
