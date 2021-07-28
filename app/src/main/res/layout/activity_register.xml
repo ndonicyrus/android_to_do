@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btn_log"
+    android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".auth.RegisterActivity">
@@ -157,7 +157,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_log"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
