@@ -25,8 +25,7 @@ import android.widget.Toast;
 
 import com.example.todoapp.R;
 import com.example.todoapp.ToDoActivity;
-import com.example.todoapp.auth.ui.login.LoginViewModel;
-import com.example.todoapp.auth.ui.login.LoginViewModelFactory;
+import com.example.todoapp.auth.RegisterActivity;
 import com.example.todoapp.settings.SharedPrefConfig;
 
 public class LoginActivity extends AppCompatActivity {
@@ -41,9 +40,20 @@ public class LoginActivity extends AppCompatActivity {
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
+        final EditText passwordEditText = findViewById(R.id.input_password);
         final Button loginButton = findViewById(R.id.login);
+        final Button registerButton = findViewById(R.id.btn_register);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override

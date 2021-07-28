@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         mainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 SharedPrefConfig myPreferenceStorage = new SharedPrefConfig(getApplicationContext());
                if (myPreferenceStorage.isLoggedIn()){
 
