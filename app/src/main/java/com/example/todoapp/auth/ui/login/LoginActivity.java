@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -128,18 +127,37 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                // loginViewModel.login(usernameEditText.getText().toString(),
+                //        passwordEditText.getText().toString());
             }
         });
     }
 
+    private void byPassTemplateLogin(String username, String password){
+        SharedPrefConfig myPreferenceStorage = new SharedPrefConfig(getApplicationContext());
+        myPreferenceStorage.setLoggingInStatus(true);
+
+        if (myPreferenceStorage.authenticate(username, password))
+        {
+            myPreferenceStorage.setLoggingInStatus(true);
+
+            Intent intent = new Intent(getApplicationContext(), ToDoActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(this, "wrong credentials", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
+        String welcome = "welcome!" + model.getDisplayName();
         // TODO : initiate successful logged in experience
 
         SharedPrefConfig myPreferenceStorage = new SharedPrefConfig(getApplicationContext());
         myPreferenceStorage.setLoggingInStatus(true);
 
-        Intent intent = new Intent(LoginActivity.this, ToDoActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ToDoActivity.class);
         startActivity(intent);
 
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
@@ -148,4 +166,8 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+
 }
+
+

@@ -64,7 +64,7 @@ public class ToDoDetailActivity extends AppCompatActivity {
          if (getIntent().hasExtra("TITLE")) {
              toolBarLayout.setTitle(getIntent().getStringExtra("TITLE"));
          }
-         if (getIntent().hasExtra("DETAILS")) {
+             if (getIntent().hasExtra("DETAILS")) {
              txtDetails.setText(getIntent().getStringExtra("DETAILS"));
          }
     }

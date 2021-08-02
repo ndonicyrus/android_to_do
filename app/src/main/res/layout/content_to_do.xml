@@ -26,7 +26,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/welcometext"
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,9 +45,9 @@
         android:layout_margin="16dp"
         android:layout_marginTop="44dp"
         android:text="How is your work life balnce this week?"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="@+id/welcometext"
+        app:layout_constraintStart_toStartOf="@+id/welcometext"
+        app:layout_constraintTop_toBottomOf="@+id/welcometext" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

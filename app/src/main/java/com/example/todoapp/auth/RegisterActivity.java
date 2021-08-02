@@ -14,6 +14,8 @@ import com.example.todoapp.ToDoActivity;
 import com.example.todoapp.auth.ui.login.LoginActivity;
 import com.example.todoapp.settings.SharedPrefConfig;
 
+import kotlinx.coroutines.internal.LockFreeLinkedList_commonKt;
+
 public class RegisterActivity extends AppCompatActivity {
 
     EditText inputName, inputNumber, inputEmail , inputPassword, inputConfirm;
@@ -59,13 +61,22 @@ public class RegisterActivity extends AppCompatActivity {
         password = inputPassword.getText().toString().trim();
         confirm = inputConfirm.getText().toString().trim();
 
+        /**
+         * code to add user detail shared preference
+         */
+
         SharedPrefConfig sharedPrefConfig = new SharedPrefConfig(RegisterActivity.this);
         sharedPrefConfig.setUserInfo(name, email, number, password);
+
+        //Mark the user as logged in
+
+        sharedPrefConfig.setLoggingInStatus(true);
 
         Toast.makeText(this, "User"+" "+name+" "+"registered successfully.", Toast.LENGTH_SHORT).show();
 
 
         Intent intent = new Intent(RegisterActivity.this, ToDoActivity.class);
+        intent.putExtra("username", name);
         startActivity(intent);
 
     }

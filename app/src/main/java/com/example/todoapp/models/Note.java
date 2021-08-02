@@ -1,22 +1,38 @@
 package com.example.todoapp.models;
 
-public class Note {
+import org.intellij.lang.annotations.Identifier;
 
-    private int id;
+import io.objectbox.annotation.Entity;
+import io.objectbox.annotation.Id;
+
+@Entity
+public class Note {
+    @Id
+    private long id;
+
     private String title;
     private String description;
     private String created_at;
     private String updated_at;
     private String status;
 
+    /**This is a constructor used to give us access to
+     * class' attribute and method
+     */
+
+
     public Note() {
     }
 
-    public int getId() {
+    /**Getters and setters
+     */
+
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
