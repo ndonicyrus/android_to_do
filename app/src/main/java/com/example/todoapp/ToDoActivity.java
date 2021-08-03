@@ -3,6 +3,7 @@ package com.example.todoapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.todoapp.models.Note;
 import com.example.todoapp.settings.SharedPrefConfig;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -20,9 +21,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.objectbox.Box;
+
 public class ToDoActivity extends AppCompatActivity {
 
     TextView welcomeText;
+    private Box<Note> notesBox;
 
     int numberOfSearches = 0;
     private AppBarConfiguration appBarConfiguration;
@@ -31,7 +35,11 @@ public class ToDoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        notesBox = ObjectBox.get().boxFor(Note.class);
+        Toast.makeText(this,"You have" + notesBox.count()+ "To dos.",Toast.LENGTH_SHORT).show();
+
         setContentView(R.layout.activity_to_do);
+
 
         welcomeText = findViewById(R.id.welcometext);
 

@@ -14,14 +14,20 @@ import com.example.todoapp.models.Subtask;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
+import io.objectbox.Box;
+
 public class NewToDoActivity extends AppCompatActivity
 {
     TextInputEditText editTitle;
+    private Box<Note>notesBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_new_to_do);
+
+        notesBox = ObjectBox.get().boxFor(Note.class);
 
         Button btnCancel = findViewById(R.id.btnDelete);
         Button btnCreateTask = findViewById(R.id.btnCreateTask);
@@ -33,6 +39,7 @@ public class NewToDoActivity extends AppCompatActivity
         TextInputEditText editDetail = findViewById(R.id.editDetails);
         TextInputEditText editSubtasks = findViewById(R.id.editSubtasks);
 
+
         Note newNote = new Note();
         btnCreateTask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +47,8 @@ public class NewToDoActivity extends AppCompatActivity
 
                 newNote.setTitle(editTitle.getText().toString());
                 newNote.setDescription(editDetail.getText().toString());
-                newNote.setId(1);
+
+                notesBox.put(newNote); //Creates an new note in the database
 
                 Intent intent = new Intent(NewToDoActivity.this, ToDoDetailActivity.class);
                 intent.putExtra("TITLE", newNote.getTitle());
