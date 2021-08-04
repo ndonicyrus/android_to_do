@@ -35,7 +35,9 @@ public class ToDoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         notesBox = ObjectBox.get().boxFor(Note.class);
+
         Toast.makeText(this,"You have" + notesBox.count()+ "To dos.",Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.activity_to_do);

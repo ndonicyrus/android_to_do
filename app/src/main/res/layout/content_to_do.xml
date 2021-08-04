@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginTop="44dp"
-        android:text="How is your work life balnce this week?"
+        android:text="How is your work life balance this week?"
         app:layout_constraintEnd_toEndOf="@+id/welcometext"
         app:layout_constraintStart_toStartOf="@+id/welcometext"
         app:layout_constraintTop_toBottomOf="@+id/welcometext" />

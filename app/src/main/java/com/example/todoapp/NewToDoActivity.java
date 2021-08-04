@@ -41,6 +41,8 @@ public class NewToDoActivity extends AppCompatActivity
 
 
         Note newNote = new Note();
+
+
         btnCreateTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,12 +50,12 @@ public class NewToDoActivity extends AppCompatActivity
                 newNote.setTitle(editTitle.getText().toString());
                 newNote.setDescription(editDetail.getText().toString());
 
-                notesBox.put(newNote); //Creates an new note in the database
+                long id = notesBox.put(newNote); //Creates an new note in the database
+
+
 
                 Intent intent = new Intent(NewToDoActivity.this, ToDoDetailActivity.class);
-                intent.putExtra("TITLE", newNote.getTitle());
-                intent.putExtra("DETAILS", newNote.getDescription());
-
+                intent.putExtra("ID", id);
                 startActivity(intent);
             }
 
