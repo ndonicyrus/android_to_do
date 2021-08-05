@@ -151,38 +151,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <ScrollView
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:id="@+id/notes_recycler"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:itemCount="5"
+        tools:listitem="@layout/single_to_do"
 
-            <include layout="@layout/single_to_do"
-                android:id="@+id/card_single"/>
-            <include layout="@layout/single_to_do"/>
-            <include layout="@layout/single_to_do"/>
-            <include layout="@layout/single_to_do"/>
-            <include layout="@layout/single_to_do"/>
-            <include layout="@layout/single_to_do"/>
-            <include layout="@layout/single_to_do"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </ScrollView>
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_margin="8dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView6" />-->
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

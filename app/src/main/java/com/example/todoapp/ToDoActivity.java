@@ -3,6 +3,7 @@ package com.example.todoapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.todoapp.adapters.NoteAdapter;
 import com.example.todoapp.models.Note;
 import com.example.todoapp.settings.SharedPrefConfig;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,12 +24,18 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.objectbox.Box;
 
 public class ToDoActivity extends AppCompatActivity {
 
     TextView welcomeText;
     private Box<Note> notesBox;
+    private List<Note> todos =new ArrayList<>();
+    RecyclerView notesRecyclerView;
+    NoteAdapter noteAdapter;
 
     int numberOfSearches = 0;
     private AppBarConfiguration appBarConfiguration;
@@ -47,14 +56,9 @@ public class ToDoActivity extends AppCompatActivity {
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
-        CardView singleCard = findViewById(R.id.card_single);
-        singleCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ToDoActivity.this, ToDoDetailActivity.class);
-                startActivity(intent);
-            }
-        });
+
+        notesRecyclerView = findViewById(R.id.notes_recycler);
+        notesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +107,12 @@ public class ToDoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         if (getIntent().hasExtra("username"));
-        welcomeText.setText(getIntent().getStringExtra("username"));
+        welcomeText.setText("Hello"+getIntent().getStringExtra("username"));
         super.onResume();
+
+        todos = notesBox.getAll();
+        noteAdapter = new NoteAdapter(todos, ToDoActivity.this);
+        notesRecyclerView.setAdapter(noteAdapter);
+        noteAdapter.notifyDataSetChanged();
     }
 }
