@@ -1,5 +1,6 @@
 package com.example.todoapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -8,6 +9,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -63,25 +65,24 @@ public class ToDoDetailActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(v ->{
             //TODO:Add alert to ask user if he/she really wants to delete this
 
-            if (idToUse == 0){
-                Toast.makeText(this, "No Todo selected", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                notesBox.remove(idToUse);
-                Snackbar.make(v,"Todo deleted successfully", Snackbar.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, ToDoActivity.class);
-                startActivity(intent);
-                finish();
+            alertUser();
 
-            }
+
         });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               if (idToUse==0){
+                  Toast.makeText(ToDoDetailActivity.this, "Nothing to Read", Toast.LENGTH_SHORT).show();
+
+               }
+               else{
+                   Intent intent = new Intent(ToDoDetailActivity.this, NewToDoActivity.class);
+                   intent.putExtra("ID", idToUse);
+                   startActivity(intent);
+               }
             }
         });
     }
@@ -100,4 +101,38 @@ public class ToDoDetailActivity extends AppCompatActivity {
          }
 
     }
+    public void deleteTodo(){
+        if (idToUse == 0){
+            Toast.makeText(this, "No Todo selected", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            notesBox.remove(idToUse);
+            Intent intent = new Intent(this, ToDoActivity.class);
+            startActivity(intent);
+            finish();
+
+        }
+    }
+    public void alertUser(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ToDoDetailActivity.this);
+        builder.setTitle("Delete Todo")
+                .setMessage("Are you sure you want to delete this message?");
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+              deleteTodo();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(ToDoDetailActivity.this, "Deleting stopped", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 }

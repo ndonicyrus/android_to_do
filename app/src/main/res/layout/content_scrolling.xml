@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:drawableStart="@drawable/ic_baseline_cancel_24"
-            android:text="Cancel"
+            android:text="Delete"
             app:icon="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toStartOf="@+id/btnComplete"
             app:layout_constraintStart_toStartOf="parent"
